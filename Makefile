@@ -1,14 +1,16 @@
 .PHONY: setup pipeline dashboard clean
- 
+
 setup:
 	pip install -r requirements.txt
- 
-pipeline: clean
+
+pipeline:
 	python load_data.py
 	python analysis.py
- 
+
 dashboard:
-	python dashboard.py
- 
+	streamlit run dashboard.py
+
 clean:
-	rm -f *.csv *.png *.db * .txt
+	del *.csv
+	del *.png
+	del *.db
