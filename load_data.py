@@ -67,7 +67,7 @@ with open("cell-count.csv", newline="") as csvfile:
         cursor.execute("""
             INSERT OR IGNORE INTO projects (project_id)
             VALUES (?)
-        """, (row["project_id"],))
+        """, (row["project"],))
 
         # insert into subjects
         cursor.execute("""
@@ -75,10 +75,10 @@ with open("cell-count.csv", newline="") as csvfile:
                 subject_id, project_id, condition, age, sex, treatment, response
             ) VALUES (?, ?, ?, ?, ?, ?, ?)
         """, (
-            row["subject_id"],
-            row["project_id"],
+            row["subject"],
+            row["project"],
             row.get("condition"),
-            int(row["age"]) if row["age"] else None,
+            int(row["age"]),
             row.get("sex"),
             row.get("treatment"),
             row.get("response")
@@ -90,11 +90,11 @@ with open("cell-count.csv", newline="") as csvfile:
                 sample_id, subject_id, project_id, sample_type, time_from_treatment_start
             ) VALUES (?, ?, ?, ?, ?)
         """, (
-            row["sample_id"],
-            row["subject_id"],
-            row["project_id"],
+            row["sample"],
+            row["subject"],
+            row["project"],
             row.get("sample_type"),
-            int(row["time_from_treatment_start"]) if row["time_from_treatment_start"] else None
+            int(row["time_from_treatment_start"])
         ))
 
         # insert into cell_counts
@@ -103,12 +103,12 @@ with open("cell-count.csv", newline="") as csvfile:
                 sample_id, b_cell, cd8_t_cell, cd4_t_cell, nk_cell, monocyte
             ) VALUES (?, ?, ?, ?, ?, ?)
         """, (
-            row["sample_id"],
-            int(row["b_cell"]) if row["b_cell"] else None,
-            int(row["cd8_t_cell"]) if row["cd8_t_cell"] else None,
-            int(row["cd4_t_cell"]) if row["cd4_t_cell"] else None,
-            int(row["nk_cell"]) if row["nk_cell"] else None,
-            int(row["monocyte"]) if row["monocyte"] else None
+            row["sample"],
+            int(row["b_cell"]),
+            int(row["cd8_t_cell"]),
+            int(row["cd4_t_cell"]),
+            int(row["nk_cell"]),
+            int(row["monocyte"])
         ))
 
 
