@@ -11,7 +11,8 @@ Initializes the database with your schema.
 Loads all rows from cell-count.csv.
 
 Requirements:
-The script must be named `load_data.py` and located in the root directory (not in subdirectories like `src/`).
+The script must be named `load_data.py` and located in the root directory 
+(not in subdirectories like `src/`).
  - When executed with `python load_data.py`, it should create a SQLite database file (`.db` extension) in the repository root.
 - The script should be executable directly without command-line arguments or module-style execution (`python -m`).
 """
@@ -55,7 +56,8 @@ cursor.executescript('''
             cd4_t_cell  INTEGER,
             nk_cell     INTEGER,
             monocyte    INTEGER,
-            FOREIGN KEY (sample_id) REFERENCES samples(sample_id)                   
+            FOREIGN KEY (sample_id) REFERENCES samples(sample_id)  
+    );                 
 ''')
 
 #now to load the csv
