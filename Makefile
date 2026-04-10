@@ -11,6 +11,9 @@ dashboard:
 	streamlit run dashboard.py
 
 clean:
-	del *.csv
-	del *.png
-	del *.db
+	del database.db
+	del cell_freq_summary.csv
+	del statistical_analysis.csv
+	del boxplot.png
+	del part4_results.txt
+	del melanoma_PBMC_samples_baseline.csv
