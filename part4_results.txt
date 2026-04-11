@@ -1,0 +1,14 @@
+Samples per project:
+project_id
+prj1    384
+prj3    272
+
+Responders:
+response
+no     325
+yes    331
+
+Sex counts:
+sex
+F    312
+M    344

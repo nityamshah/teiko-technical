@@ -1,6 +1,7 @@
 # teiko-technical
 
 to run this code: 
+- clean up existing files with make clean (optional)
 - make sure you have the requirements in requirements.txt 
     - (make setup or pip install -r requirements.txt)
 - load the data and run the analysis 
