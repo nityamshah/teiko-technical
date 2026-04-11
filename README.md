@@ -13,7 +13,7 @@ to run this code:
         - part4_results.txt
         - melanoma_PBMC_samples_baseline.csv
 - set up dashboard 
-    - (make dashboard or streamlit run dashboard.py)
+    - (make dashboard or streamlit run dashboard.py --server.headless true --browser.gatherUsageStats false)
 
 schema explanation: 
     I organized this relational database schema to the implicit hierarchies in the clinical trial
