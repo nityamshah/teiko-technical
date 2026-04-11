@@ -48,16 +48,12 @@ with tab2:
 
     st.subheader("Significant Differences (t-test results)")
 
-    results_df = run_statistical_analysis()  # make sure this returns the results table
-
     st.dataframe(results_df)
 
     significant = results_df[results_df["significant"] == True]["population"].tolist()
 
     st.write("### Cell populations with significant differences:")
     st.write(significant)
-
-    st.caption("Statistical results saved in statistical_analysis.csv")
 
 #part 4
 with tab3:
@@ -78,8 +74,8 @@ with tab3:
     st.dataframe(sex_counts)
 
     st.download_button(
-        "Download Part 4 Results",
-        data=open("part4_results.txt").read(),
-        file_name="part4_results.txt",
-        mime="text/plain"
+        "Download Melanoma PBMC Baseline Samples (Miraclib, t=0) Dataset (CSV)",
+        data=df4.to_csv(index=False),
+        file_name="melanoma_PBMC_samples_baseline.csv",
+        mime="text/csv"
     )
