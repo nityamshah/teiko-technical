@@ -18,7 +18,7 @@ with tab1:
 
     df2 = run_initial_analysis()
 
-    st.dataframe(df2.head(20))
+    st.dataframe(df2)
 
     st.download_button(
         "Download Part 2 CSV",
@@ -31,7 +31,7 @@ with tab1:
 with tab2:
     st.header("Responder vs Non-Responder Analysis")
 
-    df3 = run_statistical_analysis()
+    df3, results_df = run_statistical_analysis()
 
     fig, ax = plt.subplots()
 
@@ -46,13 +46,27 @@ with tab2:
     plt.xticks(rotation=45)
     st.pyplot(fig)
 
+    st.subheader("Significant Differences (t-test results)")
+
+    results_df = run_statistical_analysis()  # make sure this returns the results table
+
+    st.dataframe(results_df)
+
+    significant = results_df[results_df["significant"] == True]["population"].tolist()
+
+    st.write("### Cell populations with significant differences:")
+    st.write(significant)
+
     st.caption("Statistical results saved in statistical_analysis.csv")
 
 #part 4
 with tab3:
     st.header("Subset Analysis")
 
-    samples_per_project, responders, sex_counts = run_data_subset_analysis()
+    df4, samples_per_project, responders, sex_counts = run_data_subset_analysis()
+
+    st.subheader("Melanoma PBMC Baseline Samples (Miraclib, t=0)")
+    st.dataframe(df4)   
 
     st.subheader("Samples per project")
     st.dataframe(samples_per_project)

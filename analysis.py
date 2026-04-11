@@ -160,7 +160,7 @@ def run_statistical_analysis(db_path = "database.db"):
     pd.DataFrame(results).to_csv("statistical_analysis.csv", index=False)
 
     connection.close()
-    return melted_df
+    return melted_df, pd.DataFrame(results)
 
 def save_boxplots(melted_df):
     #box plots
@@ -244,7 +244,7 @@ def run_data_subset_analysis (db_path = "database.db"):
         f.write("\n\nSex counts:\n")
         f.write(sex_counts.to_string())
 
-    return samples_per_project, responders, sex_counts
+    return df, samples_per_project, responders, sex_counts
 
 def avg_b_cells_melanoma_males_baseline(db_path="database.db"):
     """Considering Melanoma males, what is the average number of B cells 
@@ -287,9 +287,9 @@ def main():
     df = run_initial_analysis()
     #writes results to cell_freq_summary.csv
 
-    df = run_statistical_analysis()
+    melted_df, results_df = run_statistical_analysis()
     #writes results to statistical_analysis.csv
-    save_boxplots(df)
+    save_boxplots(melted_df)
     #generate boxlpot to boxplot.png
     
     run_data_subset_analysis()
