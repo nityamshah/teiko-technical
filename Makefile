@@ -8,7 +8,7 @@ pipeline:
 	python analysis.py
 
 dashboard:
-	streamlit run dashboard.py
+	streamlit run dashboard.py --server.headless true --browser.gatherUsageStats false
 
 clean:
 	del database.db
