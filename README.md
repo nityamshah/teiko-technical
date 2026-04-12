@@ -1,7 +1,6 @@
 # teiko-technical
 
 to run this code: 
-- clean up existing files with make clean (optional)
 - make sure you have the requirements in requirements.txt 
     - (make setup or pip install -r requirements.txt)
 - load the data and run the analysis 
@@ -32,4 +31,4 @@ code structure:
     dashboard based on the results of parts 1-4. I designed it this way so different parts are 
     reusable, its easy to debug, and easy to extend.
 
-dashboard link: http://localhost:8501
+dashboard link: Run make dashboard and open http://localhost:8501 in your browser
