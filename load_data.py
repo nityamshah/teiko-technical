@@ -101,7 +101,7 @@ with open("cell-count.csv", newline="") as csvfile:
 
         # insert into cell_counts
         cursor.execute("""
-            INSERT INTO cell_counts (
+            INSERT OR IGNORE INTO cell_counts (
                 sample_id, b_cell, cd8_t_cell, cd4_t_cell, nk_cell, monocyte
             ) VALUES (?, ?, ?, ?, ?, ?)
         """, (
